@@ -31,7 +31,7 @@ int Welcome(){
     clear();
     int aux;
     cout << "Welcome to Project Carot!";
-    cout << "Select the service u want: "
+    cout << "Select the service you want: "
          << "\n-\n"
          << "(1): Login\n"
          << "(2): Register\n"

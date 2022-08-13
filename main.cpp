@@ -16,6 +16,13 @@ int main(int argc, char** argv){
         auth = Login();
     }
 
+    if(act == 3){
+        cout << "Exiting The program...\n";
+        cout << "Press ENTER to finish..."
+        getchar();
+        return 0;
+    }
+
     if(!auth){
         cout << "Access Denied" << endl;
     }

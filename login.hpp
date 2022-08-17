@@ -1,8 +1,8 @@
 #include <fstream>
 #include <bits/stdc++.h>
 #include <locale.h>
-using namespace std;
 
+using namespace std;
 //Variables:
 char user[50];
 char password[50];
@@ -46,6 +46,27 @@ int Welcome(){
     cin.ignore();   // SAFETY
 
     return aux;
+}
+
+bool validUser(string s){
+    ifstream infile;
+    
+    infile.open("data.txt", ios::app); //Forces the creation of a file if it doesn't exist
+    infile.close();
+
+    infile.open("data.txt", ios::in); //Open file in read-only method
+    
+    while(!infile.eof()){
+        string aux;
+        //fgets(userit, sizeof(userit), file);
+        //fgets(passwordit, sizeof(passwordit), file);
+        getline(infile, aux);
+        if(aux == s) return false;
+
+        getline(infile, aux);
+        aux = '\0';
+    }
+    return true;
 }
 
 bool Login(){
@@ -98,10 +119,20 @@ bool Login(){
 }
 
 void Register(){
-    
-    cout << "Choose your Username: ";
-    readUser();
+    bool userok = false;
 
+    while(userok == false){
+        cout << "Choose your Username: ";
+        readUser();
+        userok = validUser(user);
+        if(!userok){
+            cout << "This username isn't avaible, press ENTER to try again\n";
+            getchar();
+            fflush(stdin); fflush(stdout);
+            clear();
+        }
+    }
+    
     A:
     cout << "Set a Password: ";
     readPassword();

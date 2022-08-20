@@ -31,7 +31,7 @@ int Welcome(){
     clear();
     int aux;
     cout << "Welcome to Project Carot!";
-    cout << "Select the service you want: "
+    cout << " Select the service you want: "
          << "\n-\n"
          << "(1): Login\n"
          << "(2): Register\n"
@@ -44,7 +44,7 @@ int Welcome(){
     fflush(stdout); // SAFETY
     fflush(stdin);  // JUST FOR SAFE!!!! HATE GARBAGE, ITS 1AM AND IM CODING THIS
     cin.ignore();   // SAFETY
-
+    clear();
     return aux;
 }
 

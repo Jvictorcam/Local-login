@@ -18,7 +18,7 @@ int main(int argc, char** argv){
 
     if(act == 3){
         cout << "Exiting The program...\n";
-        cout << "Press ENTER to finish..."
+        cout << "Press ENTER to finish...";
         getchar();
         return 0;
     }

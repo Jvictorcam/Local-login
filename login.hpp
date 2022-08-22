@@ -1,6 +1,5 @@
-#include <fstream>
+
 #include <bits/stdc++.h>
-#include <locale.h>
 
 using namespace std;
 //Variables:
@@ -49,7 +48,7 @@ int Welcome(){
 }
 
 bool validUser(string s){
-    ifstream infile;
+    fstream infile;
     
     infile.open("data.txt", ios::app); //Forces the creation of a file if it doesn't exist
     infile.close();
@@ -61,17 +60,20 @@ bool validUser(string s){
         //fgets(userit, sizeof(userit), file);
         //fgets(passwordit, sizeof(passwordit), file);
         getline(infile, aux);
-        if(aux == s) return false;
-
+        if(aux == s){
+            infile.close();    
+            return false;
+        }
         getline(infile, aux);
         aux = '\0';
     }
+    infile.close();
     return true;
 }
 
 bool Login(){
-   int attempt = 3;
-   B: 
+    int attempt = 3;
+    B: 
     cout << "Sign-In Space\n-\n-\n-\n-\n" 
          << "User: ";
     readUser();
@@ -151,8 +153,7 @@ void Register(){
 
         goto A;
     }
-    else
-    cout << "You has been registered.\nPress Enter to Continue to the Login Page... ";
+    else cout << "You has been registered.\nPress Enter to Continue to the Login Page... ";
    
     ofstream ofile;
     ofile.open("data.txt", ios::app | ios::out);

@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include "login.hpp"
-
+#include "secure.hpp"
+#define finish encrypt();return 0
 using namespace std;
 
 int main(int argc, char** argv){
@@ -17,15 +18,16 @@ int main(int argc, char** argv){
     }
 
     if(act == 3){
-        cout << "Exiting The program...\n";
+        cout << "Exiting The program... \n";
         cout << "Press ENTER to finish...";
         getchar();
-        return 0;
+
+        finish;
     }
 
     if(!auth){
         cout << "Access Denied" << endl;
     }
 
-    return 0;
+    finish;
 }
